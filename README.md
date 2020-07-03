@@ -21,7 +21,7 @@ If the `--verbose` flag is present, it will also display stats on a per-file bas
 
 #### Example
 ```shell script
-md-stats ./path/to/files --verbose
+npx md-stats ./path/to/files --verbose
 ```
 
 ### Node.js
