@@ -1,0 +1,40 @@
+{
+  "name": "md-stats",
+  "version": "1.0.0",
+  "description": "A tool to report on statistics for Markdown file content within a folder (recursively).",
+  "keywords": [
+    "markdown",
+    "wordcount",
+    "word count",
+    "word-count",
+    "word",
+    "count",
+    "statistics",
+    "stats",
+    "documentation",
+    "docs",
+    "report",
+    "cli",
+    "command",
+    "command line",
+    "command-line",
+    "script",
+    "scripts",
+    "node"
+  ],
+  "main": "index.js",
+  "author": "Raice Hannay <voodoocreation@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "*.js"
+  ],
+  "bin": {
+    "md-stats": "./cli.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "recursive-readdir": "^2.2.2",
+    "wordcount": "^1.1.1",
+    "yargs": "^15.4.0"
+  }
+}
