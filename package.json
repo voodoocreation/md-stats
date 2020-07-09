@@ -1,6 +1,6 @@
 {
   "name": "md-stats",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tool to report on statistics for Markdown file content within a folder (recursively).",
   "keywords": [
     "markdown",
@@ -24,6 +24,8 @@
   ],
   "main": "index.js",
   "author": "Raice Hannay <voodoocreation@gmail.com>",
+  "repository": "https://github.com/voodoocreation/md-stats",
+  "bugs": "https://github.com/voodoocreation/md-stats/issues",
   "license": "MIT",
   "files": [
     "*.js"
