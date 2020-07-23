@@ -9,7 +9,6 @@ const { log } = console;
 const [dir = "./"] = argv._;
 
 const { env } = process;
-const hasIntl = typeof Intl === "object";
 const locale = env.LC_ALL || env.LC_MESSAGES || env.LANG || env.LANGUAGE || "en";
 const isVerbose = !!argv.verbose;
 
@@ -19,9 +18,13 @@ const isVerbose = !!argv.verbose;
  * @param num {Number}
  * @return {string}
  */
-const format = (num) => hasIntl
-  ? num.toLocaleString(locale)
-  : `${num}`;
+const format = (num) =>  {
+  try {
+    return num.toLocaleString(locale);
+  } catch (error) {
+    return `${num}`;
+  }
+}
 
 getMarkdownStats(dir).then(stats => {
   if (isVerbose) {
