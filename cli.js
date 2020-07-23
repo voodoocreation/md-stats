@@ -9,20 +9,31 @@ const { log } = console;
 const [dir = "./"] = argv._;
 
 const { env } = process;
+const hasIntl = typeof Intl === "object";
 const locale = env.LC_ALL || env.LC_MESSAGES || env.LANG || env.LANGUAGE || "en";
 const isVerbose = !!argv.verbose;
+
+/**
+ * Format number
+ *
+ * @param num {Number}
+ * @return {string}
+ */
+const format = (num) => hasIntl
+  ? num.toLocaleString(locale)
+  : `${num}`;
 
 getMarkdownStats(dir).then(stats => {
   if (isVerbose) {
     for (const file of stats.files) {
       log(c.white.underline(file.name));
-      log(c.yellow("Word count:"), c.green(file.words.toLocaleString(locale)));
-      log(c.yellow("Character count:"), c.green(file.characters.toLocaleString(locale)));
+      log(c.yellow("Word count:"), c.green(format(file.words)));
+      log(c.yellow("Character count:"), c.green(format(file.characters)));
       log();
     }
   }
 
-  log(c.yellow("Total Markdown files:"), c.green(stats.files.length.toLocaleString(locale)));
-  log(c.yellow("Total word count:"), c.green(stats.words.toLocaleString(locale)));
-  log(c.yellow("Total character count:"), c.green(stats.characters.toLocaleString(locale)));
+  log(c.yellow("Total Markdown files:"), c.green(format(stats.files.length)));
+  log(c.yellow("Total word count:"), c.green(format(stats.words)));
+  log(c.yellow("Total character count:"), c.green(format(stats.characters)));
 });

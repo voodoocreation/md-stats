@@ -1,6 +1,6 @@
 {
   "name": "md-stats",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A tool to report on statistics for Markdown file content within a folder (recursively).",
   "keywords": [
     "markdown",
